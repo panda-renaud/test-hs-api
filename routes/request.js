@@ -57,6 +57,7 @@ function routerWrapper(config) {
 
     router.post('/callbacks', async (req, res, next) => {
         const validation = validate(schemas.newCallbackRequest, req.body)
+        console.log('HERE_1', validation)
         if (validation !== undefined) { res.status(400).send(validation); return }
 
         const data = {
@@ -65,7 +66,7 @@ function routerWrapper(config) {
             phone: req.body.phone,
             time_to_call: req.body.time
         }
-
+        console.log('HERE_2', config.callbackFormGuid, data, ipFromReq(req), req.body.hubspotutk)
         try {
             let result = await service.postForm(config.callbackFormGuid, data, ipFromReq(req), req.body.hubspotutk)
         } catch (err) {
