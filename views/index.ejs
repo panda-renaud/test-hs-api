@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <strong>Health check</strong>
+    <p>Element key(masked): <%= elementKeyMasked %></p>
+    <% if(paymentAccountHolderMasked){ %>
+      <h4>Payment info</h4>
+      <p>account holder (masked): <%= paymentAccountHolderMasked %></p>
+    <% } %>
+    <% if(paymentIbanMasked){ %>
+      <p>iban (masked): <%= paymentIbanMasked %></p>
+    <% } %>
+    <p></p>
+  </body>
+</html>
